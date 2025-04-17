@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded transition-colors;
+  }
+}
+
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 30;
+  --background-end-rgb: 0, 0, 0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-300 to-white;
+  }
+  
+  .enhanced-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      to right,
+      #ffffff,
+      #c7d2fe,
+      #8b5cf6,
+      #c7d2fe,
+      #ffffff
+    );
+    text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+    filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.25));
+  }
+  
+  .glow-sm {
+    box-shadow: 0 0 5px 2px rgba(139, 92, 246, 0.5);
+  }
+  
+  .glow-md {
+    box-shadow: 0 0 10px 3px rgba(139, 92, 246, 0.5);
+  }
+  
+  .glow-lg {
+    box-shadow: 0 0 15px 5px rgba(139, 92, 246, 0.5);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.7);
+  }
+}
+
+/* Particle animation for floating elements */
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 10s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float 4s ease-in-out infinite;
+}
