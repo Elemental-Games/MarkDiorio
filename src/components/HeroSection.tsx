@@ -54,6 +54,14 @@ const TypewriterText = ({ text }: { text: string }) => {
 }
 
 const HeroSection = () => {
+  // Add scroll handler function
+  const scrollToNextSection = () => {
+    const skillsSection = document.getElementById('skills')
+    if (skillsSection) {
+      skillsSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden">
       {/* Background */}
@@ -130,7 +138,7 @@ const HeroSection = () => {
           className="mt-20"
         >
           <motion.div 
-            className="inline-block border-2 border-indigo-400 rounded-full p-3"
+            className="inline-block border-2 border-indigo-400 rounded-full p-3 cursor-pointer"
             animate={{ 
               y: [0, 12, 0],
             }}
@@ -143,6 +151,7 @@ const HeroSection = () => {
               scale: 1.2,
               boxShadow: '0 0 15px rgba(129, 140, 248, 0.7)'
             }}
+            onClick={scrollToNextSection}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
