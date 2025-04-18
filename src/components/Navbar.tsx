@@ -7,9 +7,9 @@ import Link from 'next/link'
 const menuItems = [
   { name: 'Home', href: '#' },
   { name: 'About', href: '#about' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'My Work', href: '#work' },
+  { name: 'Expertise', href: '#skills' },
+  { name: 'Get In Touch', href: '#contact' },
 ]
 
 const Navbar = () => {
