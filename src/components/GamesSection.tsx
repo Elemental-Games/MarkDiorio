@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 // Game projects
 const projects = [
@@ -47,12 +48,19 @@ const GamesSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:w-1/2 flex flex-col items-center lg:items-start"
           >
-            <div className="mb-8 max-w-md">
-              <img 
-                src="/images/games/Games_Logo.png" 
-                alt="Elemental Games LLC Logo" 
-                className="w-full h-auto"
-              />
+            <div className="mb-8 max-w-md relative w-full h-40">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative w-[200px] h-[200px]">
+                  <Image 
+                    src="/images/games/Games_Logo1.png"
+                    alt="Elemental Games LLC Logo"
+                    width={200}
+                    height={200}
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </div>
             </div>
             
             <div className="text-center lg:text-left">

@@ -189,7 +189,7 @@ export default function ContactSection() {
                     <FaLinkedin className="text-white text-xl" />
                   </a>
                   <a
-                    href="https://www.instagram.com/mark_diorio"
+                    href="https://www.instagram.com/markd03"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-slate-700 hover:bg-slate-600 p-3 rounded-full transition-colors shadow-lg shadow-purple-500/10"

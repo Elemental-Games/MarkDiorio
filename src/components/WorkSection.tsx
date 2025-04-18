@@ -1,49 +1,56 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  color: string;
+  imagePath: string;
 }
 
-// Project data with colored backgrounds instead of trying to load non-existent image files
+// Project data with actual image paths
 const projects: Project[] = [
   {
     id: 1,
     title: 'Elemental Games',
-    description: 'Trading card game platform',
-    color: '#3b82f6' // Blue
+    description: 'Trading card game platform with digital and physical components',
+    imagePath: '/images/eg-site.png'
   },
   {
     id: 2,
     title: 'Field Engineering',
-    description: 'Technical infrastructure',
-    color: '#10b981' // Green
+    description: 'On-site technical infrastructure installation and testing',
+    imagePath: '/images/field-work.JPG'
   },
   {
     id: 3,
     title: 'LED Testing System',
-    description: 'Precision optical equipment',
-    color: '#8b5cf6' // Purple
+    description: 'Precision optical equipment for nighttime visual guidance testing',
+    imagePath: '/images/te-test-led.png'
   },
 ]
 
 const WorkSection = () => {
   const [current, setCurrent] = useState(0)
+  const [loading, setLoading] = useState(true)
 
-  // Auto-advance every 3 seconds
+  // Auto-advance every 5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev: number) => (prev + 1) % projects.length)
-    }, 3000)
+    }, 5000)
     return () => clearInterval(timer)
   }, [])
 
   const next = () => setCurrent((prev: number) => (prev + 1) % projects.length)
   const prev = () => setCurrent((prev: number) => (prev - 1 + projects.length) % projects.length)
+
+  // Reset loading state when current project changes
+  useEffect(() => {
+    setLoading(true)
+  }, [current])
 
   return (
     <section id="work" className="min-h-screen flex items-center py-20" style={{ background: '#0f172a' }}>
@@ -59,34 +66,49 @@ const WorkSection = () => {
             <p className="text-lg text-gray-300 mb-8">
               From developing efficient algorithms to designing intuitive user interfaces, I&apos;m passionate about crafting impactful experiences.
             </p>
-            <button className="px-6 py-3 rounded-lg text-white font-medium" style={{ backgroundColor: '#4338ca' }}>
+            <div className="hidden md:block">
+              <h3 className="text-2xl font-bold mb-3">{projects[current].title}</h3>
+              <p className="text-gray-300 mb-6">{projects[current].description}</p>
+            </div>
+            <button className="px-6 py-3 rounded-lg text-white font-medium transition-colors hover:bg-indigo-700" style={{ backgroundColor: '#4338ca' }}>
               View My Projects
             </button>
           </div>
 
-          {/* Right side - Simple Slideshow with colored backgrounds */}
-          <div className="relative h-[400px] rounded-xl overflow-hidden" style={{ backgroundColor: '#1e293b' }}>
-            {/* Colored background container */}
-            <div 
-              className="absolute inset-0 flex items-center justify-center p-8"
-              style={{ backgroundColor: projects[current].color }}
-            >
-              <div className="relative w-full h-full flex flex-col">
-                <div className="flex-grow flex items-center justify-center">
-                  <div className="text-4xl font-bold text-white">{projects[current].title}</div>
+          {/* Right side - Image Slideshow */}
+          <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl border border-slate-700/50" style={{ backgroundColor: '#1e293b' }}>
+            {/* Image container with relative positioning */}
+            <div className="relative w-full h-full">
+              {/* Loading spinner */}
+              {loading && (
+                <div className="absolute inset-0 flex items-center justify-center z-10 bg-slate-900/50">
+                  <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
                 </div>
-                <div className="p-4" style={{ backgroundColor: 'rgba(15, 23, 42, 0.7)' }}>
-                  <h3 className="text-xl font-bold text-white text-center">{projects[current].title}</h3>
-                  <p className="text-gray-300 text-center">{projects[current].description}</p>
-                </div>
+              )}
+              
+              {/* Display current project image */}
+              <div className="absolute inset-0 overflow-hidden">
+                <Image
+                  src={projects[current].imagePath}
+                  alt={projects[current].title}
+                  fill
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  priority
+                  onLoad={() => setLoading(false)}
+                  className={`transition-opacity duration-500 ${loading ? 'opacity-0' : 'opacity-100'}`}
+                />
+              </div>
+              
+              {/* Project title on mobile only */}
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-slate-900/70 backdrop-blur-sm md:hidden">
+                <h3 className="text-xl font-bold text-white">{projects[current].title}</h3>
               </div>
             </div>
 
             {/* Navigation buttons */}
             <button 
               onClick={prev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center" 
-              style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-sm hover:bg-indigo-900/70 transition-colors z-20 border border-slate-600/30" 
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -94,8 +116,7 @@ const WorkSection = () => {
             </button>
             <button 
               onClick={next}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-sm hover:bg-indigo-900/70 transition-colors z-20 border border-slate-600/30"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -103,15 +124,12 @@ const WorkSection = () => {
             </button>
 
             {/* Indicators */}
-            <div className="absolute bottom-20 left-0 right-0 flex justify-center gap-2">
+            <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-2 z-20">
               {projects.map((_, index) => (
                 <button 
                   key={index}
                   onClick={() => setCurrent(index)}
-                  className="w-3 h-3 rounded-full"
-                  style={{ 
-                    backgroundColor: current === index ? '#4338ca' : 'rgba(255, 255, 255, 0.3)'
-                  }}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${current === index ? 'w-6 bg-indigo-500' : 'bg-white/30'}`}
                 />
               ))}
             </div>
