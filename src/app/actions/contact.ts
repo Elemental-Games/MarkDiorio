@@ -10,6 +10,15 @@ interface ContactFormData {
 
 export async function submitContactForm(data: ContactFormData) {
   try {
+    // Check if supabase client is available
+    if (!supabase) {
+      console.warn('Supabase client not initialized - environment variables may be missing');
+      return { 
+        success: false, 
+        error: 'Database connection not available. Your message was not saved.'
+      };
+    }
+
     const { error } = await supabase
       .from('messages')
       .insert([
