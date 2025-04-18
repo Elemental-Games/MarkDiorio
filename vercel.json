@@ -2,15 +2,5 @@
   "buildCommand": "next build",
   "devCommand": "next dev",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "environmentVariables": {
-    "NEXT_PUBLIC_SUPABASE_URL": {
-      "type": "plain",
-      "value": "https://votrtjubwsueaxijcjcz.supabase.co"
-    },
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": {
-      "type": "plain",
-      "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZvdHJ0anVid3N1ZWF4aWpjamN6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQ5MTgwMjAsImV4cCI6MjA2MDQ5NDAyMH0.A7ETA4Q5LbOrBRoHPEKgYISfgK_yXUEMGZc-bCqWPt4"
-    }
-  }
+  "framework": "nextjs"
 } 
