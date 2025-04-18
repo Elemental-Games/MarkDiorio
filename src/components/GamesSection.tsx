@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import StaticImage from './StaticImage'
 
 // Game projects
 const projects = [
@@ -51,13 +50,12 @@ const GamesSection = () => {
             <div className="mb-8 max-w-md relative w-full h-40">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-[200px] h-[200px]">
-                  <StaticImage 
+                  <img 
                     src="/images/games/Elemental_Logo_Games.jpg"
                     alt="Elemental Games LLC Logo"
                     width={200}
                     height={200}
-                    className="object-contain"
-                    priority
+                    className="object-contain w-full h-full"
                   />
                 </div>
               </div>
