@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
+import StaticImage from './StaticImage'
 
 // Experience data
 const experiences = [
@@ -91,13 +91,12 @@ const ExperienceSection = () => {
                     <div className="flex items-start gap-4 mb-4">
                       {exp.logo && (
                         <div className="h-20 w-20 rounded-lg flex items-center justify-center overflow-hidden bg-white/10">
-                          <Image 
+                          <StaticImage 
                             src={exp.logo}
                             alt={`${exp.company} logo`}
                             width={72}
                             height={72}
                             className="object-contain"
-                            unoptimized
                           />
                         </div>
                       )}
@@ -161,13 +160,12 @@ const ExperienceSection = () => {
                 <div className="flex items-start gap-4 mb-6">
                   {education.logo && (
                     <div className="h-20 w-20 rounded-lg flex items-center justify-center overflow-hidden bg-white/10">
-                      <Image 
+                      <StaticImage 
                         src={education.logo}
                         alt={`${education.institution} logo`}
                         width={72}
                         height={72}
                         className="object-contain"
-                        unoptimized
                       />
                     </div>
                   )}

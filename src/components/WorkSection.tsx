@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Image from 'next/image'
+import StaticImage from './StaticImage'
 
 interface Project {
   id: number;
@@ -88,14 +88,13 @@ const WorkSection = () => {
               
               {/* Display current project image */}
               <div className="absolute inset-0 overflow-hidden">
-                <Image
+                <StaticImage
                   src={projects[current].imagePath}
                   alt={projects[current].title}
                   fill
                   style={{ objectFit: 'cover', objectPosition: 'center' }}
                   priority
                   onLoad={() => setLoading(false)}
-                  unoptimized
                   className={`transition-opacity duration-500 ${loading ? 'opacity-0' : 'opacity-100'}`}
                 />
               </div>
