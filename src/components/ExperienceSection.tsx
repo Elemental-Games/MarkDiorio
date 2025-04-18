@@ -90,13 +90,14 @@ const ExperienceSection = () => {
                   <div className="flex flex-col h-full">
                     <div className="flex items-start gap-4 mb-4">
                       {exp.logo && (
-                        <div className="h-20 w-20 rounded-lg flex items-center justify-center overflow-hidden">
+                        <div className="h-20 w-20 rounded-lg flex items-center justify-center overflow-hidden bg-white/10">
                           <Image 
                             src={exp.logo}
                             alt={`${exp.company} logo`}
                             width={72}
                             height={72}
                             className="object-contain"
+                            unoptimized
                           />
                         </div>
                       )}
@@ -159,13 +160,14 @@ const ExperienceSection = () => {
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-4 mb-6">
                   {education.logo && (
-                    <div className="h-20 w-20 rounded-lg flex items-center justify-center overflow-hidden">
+                    <div className="h-20 w-20 rounded-lg flex items-center justify-center overflow-hidden bg-white/10">
                       <Image 
                         src={education.logo}
                         alt={`${education.institution} logo`}
                         width={72}
                         height={72}
                         className="object-contain"
+                        unoptimized
                       />
                     </div>
                   )}

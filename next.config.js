@@ -5,12 +5,11 @@ const nextConfig = {
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
   },
-  // Add image domains if needed
+  // Fix image configuration for deployment
   images: {
-    domains: ['votrtjubwsueaxijcjcz.supabase.co'],
     unoptimized: true,
   },
-  // Enable static exports
+  // Enable static exports for better compatibility
   output: 'standalone',
 };
 

@@ -52,12 +52,13 @@ const GamesSection = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="relative w-[200px] h-[200px]">
                   <Image 
-                    src="/images/games/Games_Logo1.png"
+                    src="/images/games/Elemental_Logo_Games.jpg"
                     alt="Elemental Games LLC Logo"
                     width={200}
                     height={200}
                     className="object-contain"
                     priority
+                    unoptimized
                   />
                 </div>
               </div>

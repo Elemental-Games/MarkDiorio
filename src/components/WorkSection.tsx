@@ -95,6 +95,7 @@ const WorkSection = () => {
                   style={{ objectFit: 'cover', objectPosition: 'center' }}
                   priority
                   onLoad={() => setLoading(false)}
+                  unoptimized
                   className={`transition-opacity duration-500 ${loading ? 'opacity-0' : 'opacity-100'}`}
                 />
               </div>
