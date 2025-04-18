@@ -7,6 +7,7 @@ interface Project {
   title: string;
   description: string;
   imagePath: string;
+  link?: string;
 }
 
 // Project data with actual image paths
@@ -15,7 +16,8 @@ const projects: Project[] = [
     id: 1,
     title: 'Elemental Games',
     description: 'Trading card game platform with digital and physical components',
-    imagePath: 'https://storage.googleapis.com/markdiorio-images/eg-site.png'
+    imagePath: 'https://storage.googleapis.com/markdiorio-images/eg-site.png',
+    link: 'https://www.elementalgames.com/'
   },
   {
     id: 2,
@@ -65,13 +67,6 @@ const WorkSection = () => {
             <p className="text-lg text-gray-300 mb-8">
               From developing efficient algorithms to designing intuitive user interfaces, I&apos;m passionate about crafting impactful experiences.
             </p>
-            <div className="hidden md:block">
-              <h3 className="text-2xl font-bold mb-3">{projects[current].title}</h3>
-              <p className="text-gray-300 mb-6">{projects[current].description}</p>
-            </div>
-            <button className="px-6 py-3 rounded-lg text-white font-medium transition-colors hover:bg-indigo-700" style={{ backgroundColor: '#4338ca' }}>
-              View My Projects
-            </button>
           </div>
 
           {/* Right side - Image Slideshow */}
