@@ -11,7 +11,7 @@ const experiences = [
     company: 'Federal Aviation Administration',
     period: '2020-Present',
     description: 'Led testing initiatives for critical aviation systems within the National Airspace System. Coordinated with cross-functional teams to ensure reliable and efficient operation of air traffic management systems. Developed and implemented comprehensive test plans for safety-critical infrastructure.',
-    logo: '/images/logos/faa-logo.png',
+    logo: '/images/faa-logo.png',
     skills: ['Systems Engineering', 'Test Management', 'Aviation Systems', 'Technical Documentation', 'Project Coordination']
   },
   {
@@ -20,7 +20,7 @@ const experiences = [
     company: 'Rowan University',
     period: '2019',
     description: 'Assisted in the development and testing of virtual reality applications for educational and research purposes. Collaborated with faculty and students to create immersive learning experiences. Conducted user testing and provided feedback for improving VR interfaces.',
-    logo: '/images/logos/rowan-logo.png',
+    logo: '/images/rowan-logo.png',
     skills: ['Virtual Reality', 'User Testing', 'Unity3D', 'Research', 'User Experience']
   }
 ]
@@ -33,7 +33,7 @@ const education = {
   major: "B.S. in Electrical & Computer Engineering",
   certificate: "Certificate of Undergraduate Studies in Combat Systems Engineering",
   period: "2018-2022",
-  logo: '/images/logos/rowan-logo.png',
+  logo: '/images/rowan-logo.png',
   skills: ['Electrical Engineering', 'Computer Engineering', 'Combat Systems', 'Circuit Design', 'Embedded Systems']
 }
 

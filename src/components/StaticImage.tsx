@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import PlaceholderImage from './PlaceholderImage';
 
 interface StaticImageProps {
   src: string;
@@ -25,28 +24,11 @@ export default function StaticImage({
   priority = false,
   onLoad
 }: StaticImageProps) {
-  const [error, setError] = useState(false);
-  
-  // Adjust src path for GitHub Pages deployment
-  const adjustedSrc = src.startsWith('/') ? src : `/${src}`;
-  
-  // Generate fallback image
-  const fallbackSrc = PlaceholderImage({
-    width: fill ? 300 : width,
-    height: fill ? 200 : height,
-    text: alt || 'Image Not Found',
-  });
-  
-  const handleError = () => {
-    console.error(`Failed to load image: ${adjustedSrc}`);
-    setError(true);
-    // Still call onLoad to avoid stuck loading states
-    if (onLoad) onLoad();
-  };
-  
+  // No need for complex path adjustments or error handling
+  // Just use the image directly as provided
   return (
     <Image
-      src={error ? fallbackSrc : adjustedSrc}
+      src={src}
       alt={alt}
       width={fill ? undefined : width}
       height={fill ? undefined : height}
@@ -55,7 +37,6 @@ export default function StaticImage({
       style={style}
       priority={priority}
       onLoad={onLoad}
-      onError={handleError}
       unoptimized={true}
     />
   );
