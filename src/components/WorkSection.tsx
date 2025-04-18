@@ -15,19 +15,19 @@ const projects: Project[] = [
     id: 1,
     title: 'Elemental Games',
     description: 'Trading card game platform with digital and physical components',
-    imagePath: '/images/eg-site.png'
+    imagePath: 'https://storage.googleapis.com/markdiorio-images/eg-site.png'
   },
   {
     id: 2,
     title: 'Field Engineering',
     description: 'On-site technical infrastructure installation and testing',
-    imagePath: '/images/field-work.JPG'
+    imagePath: 'https://storage.googleapis.com/markdiorio-images/field-work.JPG'
   },
   {
     id: 3,
     title: 'LED Testing System',
     description: 'Precision optical equipment for nighttime visual guidance testing',
-    imagePath: '/images/te-test-led.png'
+    imagePath: 'https://storage.googleapis.com/markdiorio-images/te-test-led.png'
   },
 ]
 
@@ -92,6 +92,12 @@ const WorkSection = () => {
                   alt={projects[current].title}
                   onLoad={() => setLoading(false)}
                   className={`w-full h-full object-cover object-center transition-opacity duration-500 ${loading ? 'opacity-0' : 'opacity-100'}`}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null; // Prevent infinite loop
+                    setLoading(false);
+                    target.src = 'data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%231e293b%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2224%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20fill%3D%22%23ffffff%22%3E' + projects[current].title + '%3C%2Ftext%3E%3C%2Fsvg%3E';
+                  }}
                 />
               </div>
               

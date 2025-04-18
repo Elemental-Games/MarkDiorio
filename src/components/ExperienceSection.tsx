@@ -10,7 +10,7 @@ const experiences = [
     company: 'Federal Aviation Administration',
     period: '2020-Present',
     description: 'Led testing initiatives for critical aviation systems within the National Airspace System. Coordinated with cross-functional teams to ensure reliable and efficient operation of air traffic management systems. Developed and implemented comprehensive test plans for safety-critical infrastructure.',
-    logo: '/images/faa-logo.png',
+    logo: 'https://storage.googleapis.com/markdiorio-images/faa-logo.png',
     skills: ['Systems Engineering', 'Test Management', 'Aviation Systems', 'Technical Documentation', 'Project Coordination']
   },
   {
@@ -19,7 +19,7 @@ const experiences = [
     company: 'Rowan University',
     period: '2019',
     description: 'Assisted in the development and testing of virtual reality applications for educational and research purposes. Collaborated with faculty and students to create immersive learning experiences. Conducted user testing and provided feedback for improving VR interfaces.',
-    logo: '/images/rowan-logo.png',
+    logo: 'https://storage.googleapis.com/markdiorio-images/rowan-logo.png',
     skills: ['Virtual Reality', 'User Testing', 'Unity3D', 'Research', 'User Experience']
   }
 ]
@@ -32,7 +32,7 @@ const education = {
   major: "B.S. in Electrical & Computer Engineering",
   certificate: "Certificate of Undergraduate Studies in Combat Systems Engineering",
   period: "2018-2022",
-  logo: '/images/rowan-logo.png',
+  logo: 'https://storage.googleapis.com/markdiorio-images/rowan-logo.png',
   skills: ['Electrical Engineering', 'Computer Engineering', 'Combat Systems', 'Circuit Design', 'Embedded Systems']
 }
 
@@ -96,6 +96,11 @@ const ExperienceSection = () => {
                             width={72}
                             height={72}
                             className="object-contain max-w-full max-h-full"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.onerror = null; // Prevent infinite loop
+                              target.src = 'data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2272%22%20height%3D%2272%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%231e293b%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2212%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20fill%3D%22%23ffffff%22%3E' + exp.company + '%3C%2Ftext%3E%3C%2Fsvg%3E';
+                            }}
                           />
                         </div>
                       )}
@@ -165,6 +170,11 @@ const ExperienceSection = () => {
                         width={72}
                         height={72}
                         className="object-contain max-w-full max-h-full"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.onerror = null; // Prevent infinite loop
+                          target.src = 'data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2272%22%20height%3D%2272%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%231e293b%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2212%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20fill%3D%22%23ffffff%22%3E' + education.institution + '%3C%2Ftext%3E%3C%2Fsvg%3E';
+                        }}
                       />
                     </div>
                   )}
