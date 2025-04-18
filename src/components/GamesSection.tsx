@@ -71,6 +71,9 @@ const GamesSection = () => {
               <p className="text-gray-300 mb-6">
                 Founded with a vision to create interconnected gaming experiences that seamlessly blend physical and digital worlds. 
                 Through innovative technologies and engaging gameplay, Elemental Games is building the future of interactive entertainment.
+                <br></br>
+                <br></br>
+                Solo developer wearing multiple hats, from design to development to marketing and everything in between.
               </p>
               
               <div className="flex flex-wrap gap-3 mb-8">
