@@ -6,10 +6,11 @@ import Link from 'next/link'
 
 const menuItems = [
   { name: 'Home', href: '#' },
-  { name: 'About', href: '#about' },
-  { name: 'My Work', href: '#work' },
   { name: 'Expertise', href: '#skills' },
-  { name: 'Get In Touch', href: '#contact' },
+  { name: 'My Work', href: '#work' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Elemental Games', href: '#games' },
+  { name: 'Contact', href: '#contact' },
 ]
 
 const Navbar = () => {
