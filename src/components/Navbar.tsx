@@ -42,7 +42,9 @@ const Navbar = () => {
           transition={{ duration: 1 }}
           className="text-indigo-400 font-mono text-2xl md:text-3xl font-bold"
         >
-          {'<MD />'}
+          <Link href="#" className="hover:text-indigo-300 transition-colors">
+            {'<MD />'}
+          </Link>
         </motion.div>
         
         {/* Desktop Menu */}
