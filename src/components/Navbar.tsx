@@ -140,7 +140,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-indigo-400/60 mr-3"></div>
-                  <span className="font-medium">Based in San Francisco, CA</span>
+                  <span className="font-medium">Based in Philadelphia, PA</span>
                 </div>
               </div>
             </div>
