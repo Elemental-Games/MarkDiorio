@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { submitContactForm } from '@/app/actions/contact'
 
 export default function ContactSection() {
@@ -187,6 +188,15 @@ export default function ContactSection() {
                     className="bg-slate-700 hover:bg-slate-600 p-3 rounded-full transition-colors shadow-lg shadow-purple-500/10"
                   >
                     <FaLinkedin className="text-white text-xl" />
+                  </a>
+                  <a
+                    href="https://github.com/Elemental-Games"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-slate-700 hover:bg-slate-600 p-3 rounded-full transition-colors shadow-lg shadow-purple-500/10"
+                    aria-label="GitHub: @Elemental-Games"
+                  >
+                    <FaGithub className="text-white text-xl" />
                   </a>
                   <a
                     href="https://www.instagram.com/markd03"
