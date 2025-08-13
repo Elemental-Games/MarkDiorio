@@ -157,7 +157,7 @@ const GamesSection = () => {
 
                 <div className="flex-grow overflow-y-auto pr-2">
                   <img
-                    src="/images/Elekin_Kinbrold_Icon.png"
+                    src="https://storage.googleapis.com/markdiorio-images/Elekin_Kinbrold_Icon.png"
                     alt="Elekin logo"
                     className="mx-auto w-64 md:w-80 h-auto object-contain mb-6 drop-shadow-[0_0_25px_rgba(167,139,250,0.5)]"
                   />
