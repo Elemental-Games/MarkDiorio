@@ -202,14 +202,14 @@ const GamesSection = () => {
                                   animate={{ rotateY: isFlipped ? 0 : 180, scale: isFlipped ? 1.1 : 1 }}
                                   transition={{ type: 'spring', stiffness: 100, damping: 15 }}
                               >
-                                  <img src="/images/veton-r.png" alt="Veton, the Lightning Dragon card" className="w-full h-full object-contain rounded-lg shadow-2xl shadow-black/50" />
+                                  <img src="https://storage.googleapis.com/markdiorio-images/veton-r.png" alt="Veton, the Lightning Dragon card" className="w-full h-full object-contain rounded-lg shadow-2xl shadow-black/50" />
                               </motion.div>
                               <motion.div
                                   className="absolute w-full h-full"
                                   style={{ backfaceVisibility: 'hidden' }}
                                   animate={cardBackControls}
                               >
-                                  <img src="/images/Card_Back.png" alt="Elekin card back" className="w-full h-full object-contain rounded-lg shadow-2xl shadow-black/50" />
+                                  <img src="https://storage.googleapis.com/markdiorio-images/Card_Back.png" alt="Elekin card back" className="w-full h-full object-contain rounded-lg shadow-2xl shadow-black/50" />
                               </motion.div>
                           </motion.div>
                       </div>
