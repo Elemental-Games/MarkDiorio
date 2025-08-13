@@ -17,7 +17,7 @@ const experiences = [
     id: 2,
     role: 'Virtual Reality Lab Intern',
     company: 'Rowan University',
-    period: '2019',
+    period: '2017',
     description: 'Assisted in the development and testing of virtual reality applications for educational and research purposes. Collaborated with faculty and students to create immersive learning experiences. Conducted user testing and provided feedback for improving VR interfaces.',
     logo: 'https://storage.googleapis.com/markdiorio-images/rowan-logo.png',
     skills: ['Virtual Reality', 'User Testing', 'Unity3D', 'Research', 'User Experience']

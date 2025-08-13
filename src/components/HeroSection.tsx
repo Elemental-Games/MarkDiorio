@@ -127,7 +127,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.6 }}
         >
           <div className="flex flex-col items-center justify-center text-white">
-            <TypewriterText text="COMPUTER ENGINEER, TEST LEAD, FOUNDER" />
+            <TypewriterText text="FEDERAL AVIATION ADMINISTRATION, ELEMENTAL GAMES LLC, SOFTWARE ENGINEER" />
           </div>
         </motion.div>
 

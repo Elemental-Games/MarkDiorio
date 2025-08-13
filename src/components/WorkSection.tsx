@@ -16,7 +16,7 @@ const projects: Project[] = [
     id: 1,
     title: 'Elemental Games',
     description: 'Trading card game platform with digital and physical components',
-    imagePath: 'https://storage.googleapis.com/markdiorio-images/eg-site.png',
+    imagePath: 'https://storage.googleapis.com/markdiorio-images/elekinwebsite.png',
     link: 'https://www.elementalgames.com/'
   },
   {

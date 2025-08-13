@@ -12,7 +12,7 @@ const projects = [
     description: 'A revolutionary trading card game with a unique elemental system that combines strategic depth with accessible gameplay. Each card in Elekin TCG represents characters and creatures from the mystical world of Kinbrold, where elemental mastery determines the balance of power.',
     features: [
       'Physical and digital versions under simultaneous development',
-      'Interactive website with community features',
+      'Interactive website with shop and community features',
       'Scalable database architecture for future set expansions',
       'Unique gameplay mechanics centered around elemental mastery'
     ],
@@ -121,8 +121,8 @@ const GamesSection = () => {
                 <h3 className="text-3xl font-bold mb-2">Elekin TCG</h3>
                 <p className="text-xl font-medium mb-4" style={{ color: '#818cf8' }}>Masters of Kinbrold</p>
                 <p className="text-gray-300 mb-6">
-                  Enter the mystical world of Kinbrold, where elemental mastery determines the balance of power. 
-                  Elekin TCG offers an immersive gaming experience that challenges players to master the elements 
+                  Enter the elemental world of Kinbrold, where elemental mastery determines the balance of power. 
+                  Elekin TCG is a Trading Card Game that offers an immersive gaming experience that challenges players to master the elements 
                   and build strategies around unique card interactions and synergies.
                 </p>
               </div>
