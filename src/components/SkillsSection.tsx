@@ -41,7 +41,7 @@ const SkillsSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Expertise</h2>
           <div className="w-20 h-1 bg-indigo-500 mx-auto mb-8 rounded-full"></div>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-            My professional background spans across several domains, with particular expertise in these key areas.
+          Passionate about making hard things work and creating interfaces that people WANT to use
           </p>
         </motion.div>
 

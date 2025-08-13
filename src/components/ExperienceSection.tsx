@@ -28,7 +28,6 @@ const experiences = [
 const education = {
   degree: "Bachelor's Degree",
   institution: "Rowan University",
-  gpa: "3.34 GPA",
   major: "B.S. in Electrical & Computer Engineering",
   certificate: "Certificate of Undergraduate Studies in Combat Systems Engineering",
   period: "2018-2022",

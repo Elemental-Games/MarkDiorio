@@ -95,7 +95,7 @@ const GamesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-3 gap-6 w-full h-auto lg:h-[800px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-3 gap-6 w-full">
 
           {/* Elemental Games Panel */}
           <motion.div
@@ -115,6 +115,14 @@ const GamesSection = () => {
                 <p className="text-slate-300 mb-6 text-center">
                   Founded to create interconnected gaming experiences that seamlessly blend physical and digital worlds. Solo developer wearing multiple hats, from design to development.
                 </p>
+                <a 
+                  href="https://elementalgames.gg" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="mt-4 mb-6 ml-10 inline-flex items-center justify-center px-6 py-3 rounded-lg text-white font-semibold bg-indigo-600 hover:bg-indigo-500 transition-colors"
+                >
+                  Visit Elemental Games <FaArrowRight className="inline ml-2" />
+                </a>
                 <div className="w-full h-px bg-slate-700 my-6"></div>
                 <div className="flex flex-wrap gap-2 justify-center">
                   {['Game Development', 'Web Technologies', 'Cloud Infrastructure', 'Interactive Experiences'].map(tech => (
@@ -124,14 +132,7 @@ const GamesSection = () => {
                   ))}
                 </div>
               </div>
-              <a 
-                href="https://elementalgames.gg" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="mt-8 block w-full text-center px-6 py-3 rounded-lg text-white font-semibold bg-indigo-600 hover:bg-indigo-500 transition-colors"
-              >
-                Visit Elemental Games <FaArrowRight className="inline ml-2" />
-              </a>
+
             </SpotlightCard>
           </motion.div>
 
@@ -142,8 +143,8 @@ const GamesSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-br from-indigo-500/50 via-purple-500/40 to-sky-500/50 shadow-[0_0_50px_rgba(99,102,241,0.3)]">
-              <div ref={cardRef} className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-900/70 backdrop-blur-xl p-6 md:p-8 flex flex-col">
+            <div className="rounded-2xl p-[1px] bg-gradient-to-br from-indigo-500/50 via-purple-500/40 to-sky-500/50 shadow-[0_0_50px_rgba(99,102,241,0.3)]">
+              <div ref={cardRef} className="relative w-full rounded-2xl overflow-hidden bg-slate-900/70 backdrop-blur-xl p-6 md:p-8 flex flex-col">
                 <motion.div 
                   className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-indigo-500/20 blur-3xl"
                   animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -155,7 +156,7 @@ const GamesSection = () => {
                   transition={{ duration: 12, repeat: Infinity }}
                 />
 
-                <div className="flex-grow overflow-y-auto pr-2">
+                <div className="flex-grow pr-2">
                   <img
                     src="https://storage.googleapis.com/markdiorio-images/Elekin_Kinbrold_Icon.png"
                     alt="Elekin logo"
@@ -214,7 +215,6 @@ const GamesSection = () => {
                           </motion.div>
                       </div>
                   </div>
-                  <div className="w-full h-px bg-slate-700 my-8"></div>
                   <h4 className="text-xl font-semibold mb-4 text-white">Key Features</h4>
                   <ul className="space-y-3">
                     {features.map((feature) => (
@@ -231,9 +231,9 @@ const GamesSection = () => {
                   href="https://elementalgames.gg/elekin" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="mt-8 block w-full text-center px-6 py-3 rounded-lg text-white font-semibold bg-purple-600 hover:bg-purple-500 transition-colors"
+                  className="mt-8 inline-flex self-start px-6 py-3 rounded-lg text-white font-semibold bg-purple-600 hover:bg-purple-500 transition-colors"
                 >
-                  Explore Elekin TCG
+                  Visit Elekin
                 </a>
               </div>
             </div>
