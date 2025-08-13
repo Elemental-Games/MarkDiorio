@@ -186,7 +186,6 @@ const ExperienceSection = () => {
                 <div className="mb-6">
                   <div className="bg-slate-700/30 rounded-lg p-4 mb-4">
                     <h5 className="text-lg font-semibold mb-1">{education.major}</h5>
-                    <div className="text-gray-300">{education.gpa}</div>
                   </div>
                   
                   <div className="bg-slate-700/30 rounded-lg p-4">
