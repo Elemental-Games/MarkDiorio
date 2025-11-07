@@ -1,30 +1,69 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FaCode, FaReact, FaClipboardCheck } from 'react-icons/fa'
+import { FaCode, FaReact, FaClipboardCheck, FaRocket, FaExternalLinkAlt } from 'react-icons/fa'
 
 const SkillsSection = () => {
   const skills = [
     {
       id: 1,
-      title: "Software Development",
+      title: "Full-Stack Engineering",
       icon: <FaCode className="text-4xl md:text-5xl text-indigo-400" />,
-      description: "Experienced in developing various front and back end systems using Python, C++, JavaScript, and more.",
-      tags: ["Python", "C++", "JavaScript", "REST APIs", "Databases"]
+      description: "Ship production-grade web platforms from concept through deployment with scalable architectures, observability, and automation.",
+      tags: ["TypeScript", "Next.js", "Node.js", "REST APIs", "PostgreSQL"]
     },
     {
       id: 2,
-      title: "Frontend Development",
+      title: "Defense Background",
       icon: <FaReact className="text-4xl md:text-5xl text-indigo-400" />,
-      description: "Passionate about creating responsive and interactive user interfaces with modern web technologies.",
-      tags: ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"]
+      description: "Familiarity with systems engineering and testing in the defense industry including requirements, testing, evaluation, verification, and validation.",
+      tags: ["FAA", "Technical Writing", "VRTM", "T&E", "V&V", "CUGS - Combat Systems"]
     },
     {
+      
       id: 3,
-      title: "Test & Evaluation",
+      title: "Systems Reliability & QA",
       icon: <FaClipboardCheck className="text-4xl md:text-5xl text-indigo-400" />,
-      description: "5 years of experience as a General Engineer focused on testing high reliability Visual Guidance Landing Systems (VGLS).",
-      tags: ["Test Methodology", "Requirements", "Standards", "Reliability"]
+      description: "FAA test lead background brings deep reliability, verification, and compliance practices into every release cycle.",
+      tags: ["Test Strategy", "Requirements", "Traceability", "Reliability", "Documentation"]
+    },
+    {
+      id: 4,
+      title: "Product Delivery",
+      icon: <FaRocket className="text-4xl md:text-5xl text-indigo-400" />,
+      description: "Align product vision, customer feedback, and analytics to launch, iterate, and scale multi-domain experiences.",
+      tags: ["Roadmapping", "Product Discovery", "Analytics", "Stakeholder Alignment", "Launch Ops"]
+    }
+  ]
+
+  const productLaunches = [
+    {
+      id: 'elemental',
+      name: 'ElementalGames.gg',
+      description: 'Player portal and marketing site for the Elekin trading card universe with dynamic content and animation-driven storytelling.',
+      stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+      link: 'https://elementalgames.gg'
+    },
+    {
+      id: 'gildaero',
+      name: 'GildAero.com',
+      description: 'Gamified private aviation loyalty prototype featuring interactive quoting flows, onboarding funnels, and lead capture automations.',
+      stack: ['React', 'TypeScript', 'Vite', 'Motion Design'],
+      link: 'https://gildaero.com'
+    },
+    {
+      id: 'gildedcloak',
+      name: 'GildedCloak.com',
+      description: 'Luxury apparel microsite with custom theming, responsive storytelling, and an optimized checkout handoff.',
+      stack: ['Vanilla JS', 'HTML', 'CSS', 'Netlify'],
+      link: 'https://gildedcloak.com'
+    },
+    {
+      id: 'portfolio',
+      name: 'MarkDiorio.com',
+      description: 'This portfolio: modular component system showcasing aerospace engineering expertise and product launches with motion-driven UI.',
+      stack: ['Next.js', 'TypeScript', 'Framer Motion', 'Tailwind CSS'],
+      link: '/'
     }
   ]
 
@@ -41,11 +80,11 @@ const SkillsSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Expertise</h2>
           <div className="w-20 h-1 bg-indigo-500 mx-auto mb-8 rounded-full"></div>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto">
-          Passionate about making hard things work and creating interfaces that people WANT to use
+            Mission assurance meets product delivery. I apply FAA-grade V&V discipline, modern DevSecOps, and design-led execution to ship resilient software and systems.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.id}
@@ -75,6 +114,63 @@ const SkillsSection = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mt-20"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">Production Launches</h3>
+          <p className="text-center text-gray-300 max-w-2xl mx-auto mb-10">
+            Four end-to-end web builds shipped since 2023. These projects showcase my ability to ship production-grade web applications with a focus on performance, accessibility, and user experience on both frontend and backend.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {productLaunches.map((launch, index) => {
+              const isExternal = launch.link.startsWith('http')
+              return (
+                <motion.a
+                  key={launch.id}
+                  href={launch.link}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noreferrer' : undefined}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.1 * index }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="group block h-full bg-slate-900/40 backdrop-blur-sm p-6 rounded-xl border border-indigo-900/30 transition-all duration-500 hover:border-indigo-500/50"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <h4 className="text-xl font-semibold mb-1">{launch.name}</h4>
+                      <p className="text-sm uppercase tracking-wide text-indigo-300">Launched</p>
+                    </div>
+                    {isExternal && (
+                      <span className="text-indigo-300 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-y-1">
+                        <FaExternalLinkAlt />
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-gray-300 mb-6 text-sm md:text-base leading-relaxed">
+                    {launch.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {launch.stack.map((item) => (
+                      <span
+                        key={item}
+                        className="px-3 py-1 text-xs md:text-sm bg-indigo-900/40 rounded-full text-indigo-200 border border-indigo-800/50"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </motion.a>
+              )
+            })}
+          </div>
+        </motion.div>
       </div>
 
       {/* Glowing dot accents */}

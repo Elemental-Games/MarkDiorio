@@ -1,140 +1,144 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 
 interface Project {
-  id: number;
-  title: string;
-  description: string;
-  imagePath: string;
-  link?: string;
+  id: number
+  title: string
+  industry: string
+  summary: string
+  highlights: string[]
+  stack: string[]
+  link: string
 }
 
-// Project data with actual image paths
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Elemental Games',
-    description: 'Trading card game platform with digital and physical components',
-    imagePath: 'https://storage.googleapis.com/markdiorio-images/elekinwebsite.png',
-    link: 'https://www.elementalgames.com/'
+    title: 'ElementalGames.gg',
+    industry: 'Gaming Commerce',
+    summary: 'Immersive marketing and player education platform introducing the Elekin trading card universe.',
+    highlights: [
+      'Built a reusable Next.js component system for world-building content, gameplay mechanics, and release milestones.',
+      'Layered brand storytelling with Framer Motion while keeping Core Web Vitals within target budgets.',
+      'Deployed on Vercel with optimized media delivery for high-fidelity artwork.'
+    ],
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    link: 'https://elementalgames.gg'
   },
   {
     id: 2,
-    title: 'Field Engineering',
-    description: 'On-site technical infrastructure installation and testing',
-    imagePath: 'https://storage.googleapis.com/markdiorio-images/field-work.JPG'
+    title: 'GildAero.com',
+    industry: 'Travel Loyalty',
+    summary: 'Gamified loyalty prototype that turns gameplay into seat upgrades for private aviation travelers.',
+    highlights: [
+      'Designed an interactive quote simulator with TypeScript-driven pricing logic and aircraft datasets.',
+      'Showcased product vision through modular feature sections, market positioning, and onboarding funnels.',
+      'Delivered a zero-backend Vite build deployable on static hosting for rapid stakeholder testing.'
+    ],
+    stack: ['React', 'TypeScript', 'Vite', 'Custom CSS'],
+    link: 'https://gildaero.com'
   },
   {
     id: 3,
-    title: 'LED Testing System',
-    description: 'Precision optical equipment for nighttime visual guidance testing',
-    imagePath: 'https://storage.googleapis.com/markdiorio-images/te-test-led.png'
+    title: 'GildedCloak.com',
+    industry: 'Luxury Apparel',
+    summary: 'Story-driven microsite announcing The Gilded Cloak apparel line with premium visual design.',
+    highlights: [
+      'Crafted bespoke typography, color systems, and glow treatments tied to the physical product.',
+      'Built responsive layouts and scroll choreography without heavy frameworks for fast rendering.',
+      'Implemented launch-ready SEO, metadata, and performance tuning for organic discovery.'
+    ],
+    stack: ['HTML', 'CSS', 'Vanilla JS', 'Netlify'],
+    link: 'https://gildedcloak.com'
   },
+  {
+    id: 4,
+    title: 'MarkDiorio.com',
+    industry: 'Portfolio Platform',
+    summary: 'Full-stack engineering portfolio combining mission-critical FAA experience with product case studies.',
+    highlights: [
+      'Engineered modular sections for hero, expertise, work, experience, and contact flows.',
+      'Integrated motion design, typewriter effects, and ambient backgrounds while preserving accessibility.',
+      'Automated deployments and preview environments to iterate quickly on new case studies.'
+    ],
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    link: '/'
+  }
 ]
 
 const WorkSection = () => {
-  const [current, setCurrent] = useState(0)
-  const [loading, setLoading] = useState(true)
-
-  // Auto-advance every 5 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev: number) => (prev + 1) % projects.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const next = () => setCurrent((prev: number) => (prev + 1) % projects.length)
-  const prev = () => setCurrent((prev: number) => (prev - 1 + projects.length) % projects.length)
-
-  // Reset loading state when current project changes
-  useEffect(() => {
-    setLoading(true)
-  }, [current])
-
   return (
     <section id="work" className="min-h-screen flex items-center py-20" style={{ background: '#0f172a' }}>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left side - Text */}
-          <div>
-            <h2 className="text-4xl font-bold mb-6">My Work</h2>
-            <div className="w-20 h-1 mb-8" style={{ backgroundColor: '#4338ca' }}></div>
-            <p className="text-lg text-gray-300 mb-6">
-              I specialize in creating robust and elegant solutions across various domains. My approach combines technical expertise with creative problem-solving.
-            </p>
-            <p className="text-lg text-gray-300 mb-8">
-              From developing efficient algorithms to designing intuitive user interfaces, I&apos;m passionate about crafting impactful experiences.
-            </p>
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: '-100px' }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold mb-6">Featured Launches</h2>
+          <div className="w-20 h-1 mx-auto mb-8" style={{ backgroundColor: '#4338ca' }}></div>
+          <p className="text-lg text-gray-300">
+            I partner with founders and teams to take ideas from whiteboard to production—delivering polished, measurable web experiences across gaming, loyalty, apparel, and personal branding.
+          </p>
+        </motion.div>
 
-          {/* Right side - Image Slideshow */}
-          <div className="relative h-[400px] rounded-xl overflow-hidden shadow-2xl border border-slate-700/50" style={{ backgroundColor: '#1e293b' }}>
-            {/* Image container with relative positioning */}
-            <div className="relative w-full h-full">
-              {/* Loading spinner */}
-              {loading && (
-                <div className="absolute inset-0 flex items-center justify-center z-10 bg-slate-900/50">
-                  <div className="w-12 h-12 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: index * 0.1 }}
+              viewport={{ once: true, margin: '-100px' }}
+              className="bg-slate-900/40 backdrop-blur-sm p-8 rounded-xl border border-indigo-900/30 hover:border-indigo-500/50 transition-all duration-500 shadow-xl flex flex-col h-full"
+            >
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div>
+                  <h3 className="text-2xl font-semibold mb-1">{project.title}</h3>
+                  <p className="text-sm uppercase tracking-[0.2em] text-indigo-300">{project.industry}</p>
                 </div>
-              )}
-              
-              {/* Display current project image */}
-              <div className="absolute inset-0 overflow-hidden">
-                <img
-                  src={projects[current].imagePath}
-                  alt={projects[current].title}
-                  onLoad={() => setLoading(false)}
-                  className={`w-full h-full object-cover object-center transition-opacity duration-500 ${loading ? 'opacity-0' : 'opacity-100'}`}
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null; // Prevent infinite loop
-                    setLoading(false);
-                    target.src = 'data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%231e293b%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%2C%20sans-serif%22%20font-size%3D%2224%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%20fill%3D%22%23ffffff%22%3E' + projects[current].title + '%3C%2Ftext%3E%3C%2Fsvg%3E';
-                  }}
-                />
+                <a
+                  href={project.link}
+                  target={project.link.startsWith('http') ? '_blank' : undefined}
+                  rel={project.link.startsWith('http') ? 'noreferrer' : undefined}
+                  className="group inline-flex items-center gap-2 text-sm font-semibold text-indigo-200 hover:text-white transition-colors"
+                >
+                  Visit site
+                  <FaExternalLinkAlt className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
               </div>
-              
-              {/* Project title on mobile only */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-slate-900/70 backdrop-blur-sm md:hidden">
-                <h3 className="text-xl font-bold text-white">{projects[current].title}</h3>
+
+              <p className="text-gray-300 mb-6 text-base leading-relaxed">{project.summary}</p>
+
+              <ul className="space-y-2 text-gray-300 text-sm leading-relaxed mb-6">
+                {project.highlights.map((highlight) => (
+                  <li key={highlight} className="flex gap-2">
+                    <span className="text-indigo-400 mt-1">▹</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {project.stack.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1 rounded-full text-xs uppercase tracking-wide bg-indigo-900/40 text-indigo-200 border border-indigo-800/50"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
-            </div>
-
-            {/* Navigation buttons */}
-            <button 
-              onClick={prev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-sm hover:bg-indigo-900/70 transition-colors z-20 border border-slate-600/30" 
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button 
-              onClick={next}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center bg-black/40 backdrop-blur-sm hover:bg-indigo-900/70 transition-colors z-20 border border-slate-600/30"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-
-            {/* Indicators */}
-            <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-2 z-20">
-              {projects.map((_, index) => (
-                <button 
-                  key={index}
-                  onClick={() => setCurrent(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${current === index ? 'w-6 bg-indigo-500' : 'bg-white/30'}`}
-                />
-              ))}
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   )
 }
 
-export default WorkSection 
+export default WorkSection

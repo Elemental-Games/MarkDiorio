@@ -63,21 +63,12 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden pt-28 md:pt-36 pb-24">
       {/* Background */}
       <BackgroundEffect />
       
       {/* Hero content */}
       <div className="container mx-auto px-4 text-center z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="mb-8"
-        >
-          <div className="font-mono text-indigo-400 text-2xl md:text-3xl mb-6 font-bold">{'<MarkDiorio />'}</div>
-        </motion.div>
-        
         <motion.div
           className="relative"
           initial={{ opacity: 0, y: 20 }}
@@ -127,7 +118,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.6 }}
         >
           <div className="flex flex-col items-center justify-center text-white">
-            <TypewriterText text="FEDERAL AVIATION ADMINISTRATION, ELEMENTAL GAMES LLC, SOFTWARE ENGINEER" />
+            <TypewriterText text="SOFTWARE ENGINEER, MISSION-CRITICAL SYSTEMS, PRODUCT BUILDER" />
           </div>
         </motion.div>
 
@@ -135,10 +126,31 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
-          className="mt-20"
+          className="mt-10 flex flex-col gap-8 items-center"
         >
+          <p className="max-w-2xl text-center text-lg md:text-xl text-gray-300 leading-relaxed">
+            Software I&T engineer blending Rowan ECE roots, 4+ years at the FAA, and a founder’s shipping cadence. I drive V&V and DevSecOps for mission systems while building customer experiences—recent launches span Elemental Games, Gild Aero, The Gilded Cloak, and this portfolio.
+          </p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+          >
+            <a
+              href="https://github.com/Elemental-Games"
+              target="_blank"
+              rel="noreferrer"
+              className="group px-10 py-3 rounded-full border border-indigo-300 bg-indigo-500/20 text-indigo-50 font-semibold tracking-wide transition-all duration-300 hover:bg-indigo-500/40 hover:border-indigo-200 hover:shadow-[0_0_25px_rgba(129,140,248,0.6)] hover:-translate-y-1"
+            >
+              View GitHub
+              <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">→</span>
+            </a>
+          </motion.div>
+
           <motion.div 
-            className="inline-block border-2 border-indigo-400 rounded-full p-3 cursor-pointer"
+            className="inline-block border-2 border-indigo-400 rounded-full p-3 cursor-pointer mt-4"
             animate={{ 
               y: [0, 12, 0],
             }}

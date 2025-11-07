@@ -8,7 +8,7 @@ const experiences = [
     id: 1,
     role: 'General Engineer & Test Lead',
     company: 'Federal Aviation Administration',
-    period: '2020-Present',
+    period: '2020-2025',
     description: 'Led testing initiatives for critical aviation systems within the National Airspace System. Coordinated with cross-functional teams to ensure reliable and efficient operation of air traffic management systems. Developed and implemented comprehensive test plans for safety-critical infrastructure.',
     logo: 'https://storage.googleapis.com/markdiorio-images/faa-logo.png',
     skills: ['Systems Engineering', 'Test Management', 'Aviation Systems', 'Technical Documentation', 'Project Coordination']
