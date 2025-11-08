@@ -54,7 +54,7 @@ const SkillsSection = () => {
     {
       id: 'gildedcloak',
       name: 'GildedCloak.com',
-      description: 'Luxury apparel microsite with custom theming, responsive storytelling, and an optimized checkout handoff.',
+      description: 'Investigative youtube channel, responsive storytelling, and an optimized checkout handoff.',
       stack: ['Vanilla JS', 'HTML', 'CSS', 'Netlify'],
       link: 'https://gildedcloak.com'
     },
